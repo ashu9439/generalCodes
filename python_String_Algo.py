@@ -23,3 +23,26 @@ def longestCmnSubstr(a: str,b: str)-> str:
         i -=1
         j -=1
     return(s,lmax)
+#------------------------------------------------------------------------------------------------------
+
+def isStrPalindrom(s: str):
+    return s == s[::-1]
+    # sr = s[::-1]
+    # if(sr == s):
+    #     return s
+    # return ''
+
+    
+def longestPal(s: str)-> str:
+    if(len(s) == 1):
+        return s
+    if(isStrPalindrom(s)):
+        return s    
+    i = s.rfind(s[0])
+    l= ''
+    while(i>0):
+        if(isStrPalindrom(s[:i+1])):
+            l = s[:i+1] 
+            break
+        i = s[:i].rfind(s[0])
+    return(max((longestPal(s[1:]),l), key = len))
