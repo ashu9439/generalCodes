@@ -22,4 +22,4 @@ def longestCmnSubstr(a: str,b: str)-> str:
         s = s + a[i-1]
         i -=1
         j -=1
-    return(s)
+    return(s,lmax)
